@@ -11,11 +11,11 @@ En orden de precedencia (de mayor a menor), las conectivas se representan como s
 
 | **Tipo** | **Símbolo** | **Representación** |
 |:---:|:---:|:---:|
-| Negador | ¬ | - |
-| Conjuntor | ∧ | & |
-| Disyuntor | ∨ | \| |
-| Condicional | → | > |
-| Bicondicional | ↔ | = |
+| Negador | `¬` | `-` |
+| Conjuntor | `∧` | `&` |
+| Disyuntor | `∨` | `\|` |
+| Condicional | `→` | `>` |
+| Bicondicional | `↔` | `=` |
 
 A su vez, la representación de los paréntesis es la que cabría esperar, `()`.
 
