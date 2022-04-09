@@ -1,4 +1,4 @@
-# Proyectos Tecnología Industrial I
+# Proyectos Tecnología Industrial
 
 Proyectos de programación para el tercer trimestre de la asignatura de Tecnología Industrial I.
 
