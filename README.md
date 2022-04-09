@@ -4,4 +4,4 @@ Proyectos de programación para el tercer trimestre de la asignatura de Tecnolog
 
 ## Índice
 
-* [Simulación del problema de Monty Hall](/tree/monty-hall-simulation/)
+* [Simulación del problema de Monty Hall](https://github.com/JaimermXD/proyectos-tecnologia-industrial/tree/monty-hall-simulation)
