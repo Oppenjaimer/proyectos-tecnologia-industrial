@@ -1,0 +1,11 @@
+export enum TokenType {
+    VARIABLE,
+    NEGATION,
+    CONJUNCTION,
+    DISJUNCTION,
+    IMPLICATION,
+    EQUIVALENCE,
+    LPAREN,
+    RPAREN,
+    EOF
+}
