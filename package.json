@@ -1,0 +1,29 @@
+{
+  "name": "logic-parser",
+  "version": "1.0.0",
+  "description": "Propositional logic parser",
+  "main": "lib/main.js",
+  "scripts": {
+    "start": "node lib/main.js",
+    "dev": "ts-node src/main.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaimermXD/proyectos-tecnologia-industrial.git"
+  },
+  "author": "Jaime Redondo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JaimermXD/proyectos-tecnologia-industrial/issues"
+  },
+  "homepage": "https://github.com/JaimermXD/proyectos-tecnologia-industrial#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/readline-sync": "^1.4.4",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
+}
