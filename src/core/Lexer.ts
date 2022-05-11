@@ -1,5 +1,5 @@
 import { TokenType, Token } from "../components/index";
-import { UnexpectedClassError } from "../errors/UnexpectedCharError";
+import { UnexpectedCharError } from "../errors/UnexpectedCharError";
 
 export class Lexer {
     input: string;
