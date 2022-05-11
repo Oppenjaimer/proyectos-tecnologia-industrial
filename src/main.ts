@@ -2,7 +2,7 @@ import { question as prompt } from "readline-sync";
 
 while (true) {
     try {
-        const input = prompt("Logical formula: ");
+        const input = prompt("> ");
         if (!input) continue;
         if (input === ".exit") break;
     } catch (err) {
