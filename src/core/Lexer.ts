@@ -13,4 +13,59 @@ export class Lexer {
         this.current = 0;
         this.tokens = [];
     }
+
+    tokenize(): Token[] {
+        while (!this.isAtEnd()) {
+            this.start = this.current;
+            this.scanToken();
+        }
+
+        this.tokens.push(new Token(TokenType.EOF, ""));
+        return this.tokens;
+    }
+
+    private scanToken() {
+        const char = this.advance();
+        switch (char) {
+            case "-": this.addToken(TokenType.NEGATION); break;
+            case "&": this.addToken(TokenType.CONJUNCTION); break;
+            case "|": this.addToken(TokenType.DISJUNCTION); break;
+            case ">": this.addToken(TokenType.IMPLICATION); break;
+            case "=": this.addToken(TokenType.EQUIVALENCE); break;
+            case "(": this.addToken(TokenType.LPAREN); break;
+            case ")": this.addToken(TokenType.RPAREN); break;
+
+            case " ":
+            case "\r":
+            case "\t":
+                break;
+
+            default:
+                if (this.isAlpha(char)) this.variable();
+                else throw new UnexpectedCharError(char);
+                break;
+        }
+    }
+
+    private variable() {
+        while (this.isAlpha(this.input.charAt(this.current))) this.advance();
+        this.addToken(TokenType.VARIABLE);
+    }
+
+    private addToken(type: TokenType) {
+        const text = this.input.substring(this.start, this.current);
+        this.tokens.push(new Token(type, text));
+    }
+
+    private advance(): string {
+        return this.input.charAt(this.current++);
+    }
+
+    private isAlpha(char: string): boolean {
+        return /^[a-zA-Z]$/.test(char);
+    }
+
+    private isAtEnd(): boolean {
+        return this.current >= this.input.length;
+    }
 }
