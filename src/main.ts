@@ -1,6 +1,6 @@
 import { question as prompt } from "readline-sync";
 
-import { Lexer } from "./core/Lexer";
+import { Lexer, Parser } from "./core/index";
 
 while (true) {
     try {
@@ -10,6 +10,9 @@ while (true) {
 
         const lexer = new Lexer(input);
         const tokens = lexer.tokenize();
+
+        const parser = new Parser(tokens);
+        const tree = parser.parse();
     } catch (err) {
         if (err instanceof Error) console.error(`Error: ${err.message}`);
     }
