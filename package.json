@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/JaimermXD/proyectos-tecnologia-industrial#readme",
   "dependencies": {
-    "readline-sync": "^1.4.10"
+    "chalk": "^4.1.2",
+    "readline-sync": "^1.4.10",
+    "table": "^6.8.0"
   },
   "devDependencies": {
     "@types/readline-sync": "^1.4.4",
