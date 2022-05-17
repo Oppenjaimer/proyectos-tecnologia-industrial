@@ -24,6 +24,21 @@ export class Lexer {
         return this.tokens;
     }
 
+    getVariables(): Token[] {
+        const variables = this.tokens.filter(token => token.type === TokenType.VARIABLE);
+        const usedVariables: string[] = [];
+        const uniqueVariables: Token[] = [];
+
+        for (let variable of variables) {
+            if (usedVariables.includes(variable.value)) continue;
+
+            usedVariables.push(variable.value);
+            uniqueVariables.push(variable);
+        }
+
+        return uniqueVariables.sort((a, b) => a.value.localeCompare(b.value));
+    }
+
     private scanToken() {
         const char = this.advance();
         switch (char) {
