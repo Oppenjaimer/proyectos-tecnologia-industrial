@@ -1,6 +1,6 @@
 {
   "name": "logic-parser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Propositional logic parser",
   "main": "lib/main.js",
   "scripts": {
