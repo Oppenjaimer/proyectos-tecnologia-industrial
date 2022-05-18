@@ -4,7 +4,7 @@ import { Lexer, Parser, Interpreter } from "./core/index";
 import { printTable } from "./utils/printTable";
 
 console.log("----- Logic Parser v1.1.0 -----");
-console.log("Type '.exit' to stop the program\n")
+console.log("Type '.exit' to stop the program\n");
 
 while (true) {
     try {
