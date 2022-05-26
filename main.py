@@ -39,22 +39,22 @@ def parse_args():
 
     if args.lang not in charmaps.keys():
         parser.error(f"unsupported language: {args.lang}")
-    
+
     if args.charmap is not None and args.charmap not in charmaps.keys():
         parser.error(f"unsupported language: {args.charmap}")
-    
+
     if len(args.text) == 0 and args.charmap is None:
         parser.error("no text provided")
-    
+
     return args
 
 def translit(text, charmap):
     for i in charmap.keys():
         text = text.replace(i, charmap[i])
         text = text.replace(i.upper(), charmap[i].upper())
-    
+
     return text
-    
+
 def copy(text):
     try:
         import pyperclip
@@ -64,9 +64,9 @@ def copy(text):
             command = "xsel -bi"
         elif sys.platform == "win32":
             command = "utf8clip"
-        elif sys.platform == "dawrin":
+        elif sys.platform == "darwin":
             command = "pbcopy"
-        
+
         try:
             subprocess.run(command.split(), universal_newlines=True, check=True, input=text)
         except:
@@ -78,17 +78,17 @@ def main():
 
     if charmap is not None:
         print(f"{charmaps[charmap][0]}\n{'-' * len(charmaps[charmap][0])}")
-        
+
         items = charmaps[charmap][1].items()
         max_length = max(len(i[0]) for i in items) + 2
         for k, v in items:
             print(k.ljust(max_length) + v)
-        
+
     text = translit(" ".join(text), charmaps[lang][1])
 
     if len(text) > 0:
         print(text)
-    
+
     if not no_copy:
         copy(text)
 
