@@ -28,7 +28,7 @@ The transliteration is copied to the clipboard by making use of the 'pyperclip' 
 """
 
 
-def parse_args():
+def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(prog="translit", add_help=False, formatter_class=argparse.RawDescriptionHelpFormatter, description="Transliterate Latin characters into Cyrillic ones.", epilog=epilog)
     parser.add_argument("text", nargs="*", help="original text to transliterate")
     parser.add_argument("-l", "--lang", default="ru", help="language to transliterate into")
@@ -50,7 +50,7 @@ def parse_args():
     return args
 
 
-def translit(text, charmap):
+def translit(text: str, charmap: dict[str, str]) -> str:
     for i in charmap.keys():
         text = text.replace(i, charmap[i])
         text = text.replace(i.upper(), charmap[i].upper())
@@ -58,7 +58,7 @@ def translit(text, charmap):
     return text
 
 
-def copy(text):
+def copy(text: str):
     try:
         import pyperclip
         pyperclip.copy(text)
