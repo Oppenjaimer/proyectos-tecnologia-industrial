@@ -1,5 +1,7 @@
 from charmaps import *
+import subprocess
 import argparse
+import sys
 
 charmaps = {
     "ru": ("Russian", en_ru),
@@ -50,3 +52,20 @@ def translit(text, charmap):
     for i in charmap.keys():
         text = text.replace(i, charmap[i])
         text = text.replace(i.upper(), charmap[i].upper())
+    
+def copy(text):
+    try:
+        import pyperclip
+        pyperclip.copy(text)
+    except ImportError:
+        if sys.platform == "linux":
+            command = "xsel -bi"
+        elif sys.platform == "win32":
+            command = "utf8clip"
+        elif sys.platform == "dawrin":
+            command = "pbcopy"
+        
+        try:
+            subprocess.run(command.split(), universal_newlines=True, check=True, input=text)
+        except:
+            print("translit: warning: unable to copy transliteration to clipboard")
