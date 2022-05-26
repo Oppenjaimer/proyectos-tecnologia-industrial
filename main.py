@@ -69,3 +69,26 @@ def copy(text):
             subprocess.run(command.split(), universal_newlines=True, check=True, input=text)
         except:
             print("translit: warning: unable to copy transliteration to clipboard")
+
+def main():
+    args = vars(parse_args())
+    text, lang, no_copy, charmap = args.values()
+
+    if charmap is not None:
+        print(f"{charmaps[charmap][0]}\n{'-' * len(charmaps[charmap][0])}")
+        
+        items = charmaps[charmap][1].items()
+        max_length = max(len(i[0]) for i in items) + 2
+        for k, v in items:
+            print(k.ljust(max_length) + v)
+        
+    text = translit(" ".join(text), charmaps[lang][1])
+
+    if len(text) > 0:
+        print(text)
+    
+    if not no_copy:
+        copy(text)
+
+if __name__ == "__main__":
+    main()
