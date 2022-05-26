@@ -27,6 +27,7 @@ The transliteration is copied to the clipboard by making use of the 'pyperclip' 
   macOS                 pbcopy
 """
 
+
 def parse_args():
     parser = argparse.ArgumentParser(prog="translit", add_help=False, formatter_class=argparse.RawDescriptionHelpFormatter, description="Transliterate Latin characters into Cyrillic ones.", epilog=epilog)
     parser.add_argument("text", nargs="*", help="original text to transliterate")
@@ -48,12 +49,14 @@ def parse_args():
 
     return args
 
+
 def translit(text, charmap):
     for i in charmap.keys():
         text = text.replace(i, charmap[i])
         text = text.replace(i.upper(), charmap[i].upper())
 
     return text
+
 
 def copy(text):
     try:
@@ -71,6 +74,7 @@ def copy(text):
             subprocess.run(command.split(), universal_newlines=True, check=True, input=text)
         except:
             print("translit: warning: unable to copy transliteration to clipboard")
+
 
 def main():
     args = vars(parse_args())
@@ -91,6 +95,7 @@ def main():
 
     if not no_copy:
         copy(text)
+
 
 if __name__ == "__main__":
     main()
