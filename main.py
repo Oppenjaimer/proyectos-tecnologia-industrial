@@ -53,6 +53,8 @@ def translit(text, charmap):
         text = text.replace(i, charmap[i])
         text = text.replace(i.upper(), charmap[i].upper())
     
+    return text
+    
 def copy(text):
     try:
         import pyperclip
