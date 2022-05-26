@@ -2,12 +2,12 @@ from simulation import Simulation
 import sys
 
 
-def print_error(message):
+def print_error(message: str):
     print(f"Error: {message}")
     sys.exit(1)
 
 
-def parse_args():
+def parse_args() -> (int, int):
     args = sys.argv[1:]
     doors = 3
     attempts = 100000
