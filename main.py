@@ -1,12 +1,40 @@
 from simulation import Simulation
+import sys
+
+
+def print_error(message):
+    print(f"Error: {message}")
+    sys.exit(1)
+
+
+def parse_args():
+    args = sys.argv[1:]
+    doors = 3
+    attempts = 100000
+
+    try:
+        args = list(map(int, args))
+        if len(args) > 2:
+            print_error("too many arguments passed (max 2)")
+
+        doors = args[0]
+        if doors < 3:
+            print_error("doors argument must be greater than or equal to 3")
+
+        attempts = args[1]
+        if attempts < 100:
+            print_error("attempts argument must be greater than or equal to 100")
+    except ValueError:
+        print_error("non-integer arguments passed")
+    except IndexError:
+        pass
+
+    return doors, attempts
 
 
 def main():
-    doors = 3
-    attempts = 1000000
-
+    doors, attempts = parse_args()
     wins_switch, wins_no_switch = 0, 0
-
     simulation = Simulation(doors)
 
     for _ in range(attempts):
