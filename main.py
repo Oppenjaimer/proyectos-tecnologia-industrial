@@ -45,3 +45,8 @@ def parse_args():
         parser.error("no text provided")
     
     return args
+
+def translit(text, charmap):
+    for i in charmap.keys():
+        text = text.replace(i, charmap[i])
+        text = text.replace(i.upper(), charmap[i].upper())
