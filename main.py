@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from charmaps import *
 import subprocess
 import argparse
