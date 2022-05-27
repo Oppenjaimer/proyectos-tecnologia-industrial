@@ -9,13 +9,13 @@ Para ver cómo utilizar `translit` no hay más que ejecutar el programa con la o
 
 ### Con el intérprete de Python
 ```bash
-python translit.py --help   # En Linux, utilizar python3
+python main.py --help   # En Linux, utilizar python3
 ```
 
 ### Como comando individual
 Sólo disponible en Linux. Primero asegurarse de que el *shebang* apunta a la ruta adecuada.
 ```bash
-mv translit.py translit
+mv main.py translit
 chmod +x translit
 ./translit --help
 ```
