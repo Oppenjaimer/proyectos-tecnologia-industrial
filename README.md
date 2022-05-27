@@ -13,7 +13,9 @@ python main.py --help   # En Linux, utilizar python3
 ```
 
 ### Como comando individual
-Sólo disponible en Linux. Primero asegurarse de que el *shebang* apunta a la ruta adecuada.
+**Linux**
+
+Primero asegurarse de que el *shebang* apunta a la ruta de instalación de Python adecuada.
 ```bash
 mv main.py translit
 chmod +x translit
@@ -23,9 +25,19 @@ Para poder ejecutarlo desde cualquier lugar sin necesidad de especificar la ruta
 ```bash
 mkdir ~/bin
 source ~/.profile
-mv translit ~/bin
+mv translit charmaps.py ~/bin
 ```
 Ahora ya se puede utilizar el nombre del programa sin más.
 ```bash
 translit --help
 ```
+
+**Windows**
+
+En este caso, el *shebang* es innecesario, pues el archivo ya lleva la extensión `.bat`.
+```powershell
+echo @echo off > translit.bat
+echo python %~dp0/main.py %* >> translit.bat
+translit --help
+```
+Para poder ejecutarlo desde cualquier lugar sin necesidad de especificar la ruta del archivo, moverlo a un directorio incluido en `PATH`. Por ejemplo, `%USERPROFILE%\bin`, que habría que crear y añadir a `PATH` manualmente. Una vez hecho eso, ya se podrá utilizar el nombre del programa sin más.
