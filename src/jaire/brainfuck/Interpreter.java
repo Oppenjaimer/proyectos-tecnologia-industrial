@@ -50,6 +50,8 @@ public class Interpreter {
                 }
             }
         }
+
+        if (code.contains(".")) System.out.println();
     }
 
     private boolean isBalanced(String str) {
