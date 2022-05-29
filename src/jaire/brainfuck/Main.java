@@ -1,5 +1,8 @@
 package jaire.brainfuck;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Main {
@@ -17,6 +20,13 @@ public class Main {
                 if (code.equals("exit")) break;
 
                 interpreter.interpret(code);
+            }
+        } else {
+            try {
+                String code = Files.readString(Path.of(args[0]));
+                interpreter.interpret(code);
+            } catch (IOException err) {
+                System.out.printf("Error: file '%s' not found%n", args[0]);
             }
         }
     }
