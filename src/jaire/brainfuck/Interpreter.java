@@ -12,7 +12,7 @@ public class Interpreter {
         code = code.replaceAll("[^><+\\-.,\\[\\]]", "");
 
         if (!isBalanced(code)) {
-            System.err.println("Error: unmatched brackets");
+            System.out.println("Error: unmatched brackets");
             return;
         }
 
