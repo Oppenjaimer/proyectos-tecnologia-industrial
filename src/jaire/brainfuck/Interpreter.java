@@ -68,4 +68,12 @@ public class Interpreter {
     private int unsigned(int signed) {
         return signed & 0xff;
     }
+
+    public int getPtr() {
+        return ptr;
+    }
+
+    public int getMem() {
+        return mem[ptr];
+    }
 }
