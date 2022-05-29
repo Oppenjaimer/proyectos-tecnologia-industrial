@@ -27,7 +27,27 @@ public class Interpreter {
                 case '-' -> mem[ptr] = unsigned(mem[ptr] - 1);
                 case '.' -> System.out.print((char) unsigned(mem[ptr]));
                 case ',' -> mem[ptr] = unsigned(scanner.next().charAt(0));
-                // TODO: implement code for brackets
+                case '[' -> {
+                    if (mem[ptr] != 0) continue;
+
+                    i++;
+                    while (j > 0 || code.charAt(i) != ']') {
+                        if (code.charAt(i) == '[') j++;
+                        else if (code.charAt(i) == ']') j--;
+                        i++;
+                    }
+                }
+                case ']' -> {
+                    if (mem[ptr] == 0) continue;
+
+                    i--;
+                    while (j > 0 || code.charAt(i) != '[') {
+                        if (code.charAt(i) == ']') j++;
+                        else if (code.charAt(i) == '[') j--;
+                        i--;
+                    }
+                    i--;
+                }
             }
         }
     }
