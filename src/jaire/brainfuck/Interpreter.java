@@ -6,7 +6,6 @@ public class Interpreter {
     private final int LENGTH = 65535;
     private final int[] mem = new int[LENGTH];
     private int ptr = 0;
-    private final Scanner scanner = new Scanner(System.in);
 
     public void interpret(String code) {
         code = code.replaceAll("[^><+\\-.,\\[\\]]", "");
@@ -15,6 +14,8 @@ public class Interpreter {
             System.out.println("Error: unmatched brackets");
             return;
         }
+
+        Scanner scanner = new Scanner(System.in);
 
         int j = 0;
         for (int i = 0; i < code.length(); i++) {
